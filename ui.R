@@ -24,9 +24,11 @@ navbarPage("Vincent Bak/ Lucien Hanquiez",
                           selectInput("select", label = ("Selection d'une annee"), 
                                       choices = data[order(unique(data$year), decreasing = F),4], 
                                       selected = 1),
+                          
+                          downloadButton("downloadgraph1",label= "Telecharger Graphique"),
+                          
                           tableOutput("tablegraph1")),
                         
-                      
                           mainPanel(plotOutput("graph1",width="100%",height = "900px"),)
                       )
                      ),
@@ -44,6 +46,9 @@ navbarPage("Vincent Bak/ Lucien Hanquiez",
                          selectInput("sector", label = ("Selection d'une industrie"), 
                                      choices = unique(data$sector), 
                                      selected = 1),
+                         
+                         downloadButton("downloadgraph2",label= "Telecharger Graphique"),
+                         
                          tableOutput("tablegraph2")),
                          
                          mainPanel(plotOutput("graph2",width="100%",height = "900px"),)
@@ -63,6 +68,9 @@ navbarPage("Vincent Bak/ Lucien Hanquiez",
                           selectInput("sector2", label = ("Selection d'une industrie"), 
                                       choices = unique(data$sector), 
                                       selected = 1),
+                          
+                          downloadButton("downloadgraph3",label= "Telecharger Graphique"),
+                          
                           tableOutput("tablegraph3")),
                         
                         mainPanel(plotOutput("graph3",width="100%",height = "900px"),)

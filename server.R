@@ -13,7 +13,7 @@ dim_global <- read_delim("dim_global.csv", delim = ";", escape_double = FALSE, t
 
 shinyServer(function(input, output) {
 
-    output$graph1 <- renderPlot({
+    graph1 <- reactive({
       data =  merge(dim_sector,dim_global,by="id_sector")
       data_1 = setNames(aggregate(data["revenues"][data$year == input$select,] ~ data["sector"][data$year == input$select,],data, sum),c("Secteur","Revenues"))
       ggplot(data_1, aes(area = Revenues, fill = reorder(Secteur,Revenues),label = paste(Secteur,sep = "\n"))) +
@@ -24,15 +24,24 @@ shinyServer(function(input, output) {
         theme(legend.position = "none")+
         scale_color_grey(start= 0.7, end=0.2, aesthetics = "fill")
                              })
-    
-      output$tablegraph1 <- renderTable({
+      
+    output$graph1 <- renderPlot({print(graph1())})
+      
+    output$downloadgraph1 = downloadHandler(
+        filename = 'graph1.png',
+        content = function(file) {
+          ggsave(file, plot = graph1())
+        })
+
+    output$tablegraph1 <- renderTable({
       data =  merge(dim_sector,dim_global,by="id_sector")
       data_1 = setNames(aggregate(data["revenues"][data$year == input$select,] ~ data["sector"][data$year == input$select,],data, sum),c("Secteur","Revenues"))
       data_1 = data_1[order(data_1$Revenues, decreasing = T),]                                 
       print(data_1)
                                    })
+      
     
-    output$graph2 <- renderPlot({
+    graph2 <- reactive({
       merge=  merge(dim_sector,dim_global,by="id_sector")
       data= merge(merge,dim_industry,by="id_industry")
       a = data[data$year == input$year2,]
@@ -44,6 +53,13 @@ shinyServer(function(input, output) {
         geom_bar(stat = "identity",color="black", fill=rgb(0,0,0,0.5))
       
     })
+    output$graph2 <- renderPlot({print(graph2())})
+    
+    output$downloadgraph2 = downloadHandler(
+      filename = 'graph2.png',
+      content = function(file) {
+        ggsave(file, plot = graph2())
+      })
     
     output$tablegraph2 <- renderTable({
       merge=  merge(dim_sector,dim_global,by="id_sector")
@@ -56,7 +72,7 @@ shinyServer(function(input, output) {
       
     }) 
     
-    output$graph3 <- renderPlot({
+    graph3 <- reactive({
       merge=  merge(dim_sector,dim_global,by="id_sector")
       data= merge(merge,dim_industry,by="id_industry")
       a = data[data$year == input$year3,]
@@ -70,6 +86,14 @@ shinyServer(function(input, output) {
         scale_color_grey(start= 0.8, end=0.2, aesthetics = "fill")
       
     })
+    
+    output$graph3 <- renderPlot({print(graph3())})
+    
+    output$downloadgraph3 = downloadHandler(
+      filename = 'graph3.png',
+      content = function(file) {
+        ggsave(file, plot = graph3())
+      })
     
     output$tablegraph3 <- renderTable({
       merge=  merge(dim_sector,dim_global,by="id_sector")
