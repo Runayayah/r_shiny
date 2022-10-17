@@ -1,0 +1,108 @@
+---
+title: "La Pouffe"
+author: "Lucien/Vincent"
+date: "2022-10-12"
+output: html_document
+---
+
+    data <- read.csv2("fortune_global_500_from_2019-2021.csv", sep = ",")
+    data <- order()
+## Présentation du sujet
+
+Le sujet traité 
+
+## Obtention des données
+
+Ce jeu de donnée a était obtennus dans l'onglet Datasets du site internet Kaggle contant plus de 11 millions . Ce site internet regroupe plus de 50 000 Datasets public et plus de 400 000 notebooks sur la Data Science. Regroupant des communautés sur plusieurs sujets bien encré dans le monde de la DataScience tel que le Machine Learning ou le Deep learning ou encore en proposant des cours sur Pandas et Python. Kaggle organise des compétitions afin de pouvoir améliorer ces compétences sur la Data Science. Ce Dataset publié il y a moins d'un an, ne repertoriant aucun NoteBooks est une source clair de donnée, regroupant les 500 entreprises ayant enregistré le plus gros chiffre d'affaire sur ces 3 dernieres années.
+
+## Présentation des données
+
+Ce Dataset ce présente comme un regroupemant de résultat économique des 500 plus grosses societé du monde sur ces 3 dernieres années. Comment s'articule t'il ? 
+il contient 18 colonnes : 
+Year : L'année de l'enregristrement du résultat comptable 
+Rank : Le classement des 500 entreprises selon le chiffre d'affaire. 
+Name : Le nom de la societé 
+Sector : Le secteur d'activité 
+Industry : la spécialisation au sein de l'activité 
+Revenues : Le chiffre d'affaire en millions de dollars 
+Revchange : 
+Profits : Le profit réalisé par la societé
+Prftchange : 
+Assets : 
+Employees : Le nombre d'employés de la societé 
+Hqcity : Le nom de la ville ou est situé le siège social
+Hqstate : Si la ville est situé aux USA, l'état dans laquel la ville est situé.
+Newcomer : Est-ce que cette societé faisait-elle partis du top l'année précedente ? 
+Profitable : La societé est-elle profitable ? 
+Ceowoman : Cette societé est-elle dirigé par une femme ?
+Jobgrowth : est-ce que le nombre d'employé à t-il augmenter par rapport à l'année précédente ?
+
+## Problématique : En qu'elle mesure certains secteurs sont plus représenter que d'autres ?
+
+Comment ? Pourquoi ? en qu'elle mesure le secteurs d'activité et l'industrie à un impact sur le classement et sur la représentativité. Question importante et surtout complexe, on pourrait approcher une idée de réponse à l'aide de différentes piste de reflection.
+
+### Analyses
+
+##Univariés
+
+#Répartition du nombre d'employer
+
+#Répartition du CA
+
+```{r data}
+plot(  data$rank[data$year =="2019"],data$revenues[data$year =="2019"], xlab = "Rank", ylab= "Revenues")
+
+```
+#Répartition secteur
+```{r cars}
+
+```
+#Répartition indutrie
+```{r cars}
+plot(df$revenues)
+```
+#Proportion Femme directrice générale
+```{r cars}
+plot(df$revenues)
+```
+#Proportion de nouveaux arrivants dans le classement
+```{r cars}
+plot(df$revenues)
+```
+
+
+##Bivariés
+#Répartition des CA en fonction du secteur
+```{r cars}
+plot(df$revenues)
+```
+#Répartition des CA en fonction de de l'industrie
+```{r cars}
+plot(df$revenues)
+```
+#Répartition des profit en fonction du secteur
+```{r cars}
+plot(df$revenues)
+```
+#Répartition des profit en fonction du l'industrie
+```{r cars}
+plot(df$revenues)
+```
+
+
+
+## Conclusion
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
