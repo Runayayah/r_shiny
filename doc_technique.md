@@ -3,8 +3,7 @@
 Cette documentation contiendras les élèments suivant : 
 - Les librairies utilisées pour les différents fichier.
 - Une description du fonctionnement de l'application.
-- Un présentation du MCD.
-- Les différents bug possible. 
+- Un présentation du MCD. 
 
 ## **Librairies utiliser pour le projet** : 
 
@@ -48,4 +47,6 @@ L'application est donc séparer en deux script R :
 
 ## **Présentation du MCD**
 
+![](./MCD.png)
 
+Voici le MCD lié à nos table csv ainsi qu'à notre base de donnée SQL. 
