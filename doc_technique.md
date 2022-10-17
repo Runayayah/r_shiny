@@ -38,8 +38,14 @@ Il n'y pas de différences entre les fichiers sql_shiny et csv_shiny seule leur 
 ### ***Description global du code de l'application***
 
 L'application est donc séparer en deux script R : 
-- server.R : script R qui défini tout les caluls et les fonctions qui gére tout les graphique et fonctionnalité de l'application tel que : 
+- server.R : script R qui défini tout les calculs et les fonctions qui gére tout les graphique et fonctionnalité de l'application tel que : 
     - Les onglets 
     - Le bouton de téléchargement 
+    - le calcule et l'aggrégation des graphique 
+- ui.R : script R qui défini toute l'interface graphique du projet tel que :
+    - le theme 
+    - le placement des graphiques et le tableau de données
+
+## **Présentation du MCD**
 
 
